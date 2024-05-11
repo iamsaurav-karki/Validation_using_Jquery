@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Login Page";
+}
+
+<h2>Login Form</h2>
+
+<div class="login-container">
+    <form id="loginForm" method="post">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#loginForm").submit(function (event) {
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                if (username.trim() === "" || password.trim() === "") {
+                    alert("Please enter both username and password.");
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+}
